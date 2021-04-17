@@ -15,11 +15,11 @@ control.onEvent(EventBusSource.MICROBIT_ID_IO_P0, EventBusValue.MICROBIT_PIN_EVT
     led.toggle(0, 2)
 })
 input.onButtonPressed(Button.A, function () {
+    basic.clearScreen()
     basic.showString("X")
     basic.showNumber(X_ABSOLUTE)
     basic.showString("Y")
     basic.showNumber(Y_ABSOLUTE)
-    led.toggle(0, 0)
 })
 control.onEvent(EventBusSource.MICROBIT_ID_IO_P8, EventBusValue.MICROBIT_PIN_EVT_FALL, function () {
     if (pins.digitalReadPin(DigitalPin.P12) == 0) {
@@ -32,6 +32,7 @@ control.onEvent(EventBusSource.MICROBIT_ID_IO_P8, EventBusValue.MICROBIT_PIN_EVT
 input.onButtonPressed(Button.B, function () {
     X_ABSOLUTE = 0
     Y_ABSOLUTE = 0
+    basic.clearScreen()
 })
 control.onEvent(EventBusSource.MICROBIT_ID_IO_P0, EventBusValue.MICROBIT_PIN_EVT_FALL, function () {
     if (pins.digitalReadPin(DigitalPin.P1) == 0) {
